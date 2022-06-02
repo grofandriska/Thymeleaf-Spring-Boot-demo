@@ -24,7 +24,6 @@ public class PersonController {
         model.addAttribute("list", service.list());
         return "index";
     }
-
     @PostMapping("/new")
     public void add(@RequestBody Person person) {
         service.add(person);

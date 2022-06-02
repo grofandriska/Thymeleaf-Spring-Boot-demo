@@ -18,5 +18,4 @@ public class PM {
     private Long id;
     private Long person_id;
     private Long message_id;
-
 }
