@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.sql.Timestamp;
 
 @Entity
 @AllArgsConstructor
@@ -15,4 +13,12 @@ public class Message {
     @Id
     private Long id ;
     private String message ;
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }

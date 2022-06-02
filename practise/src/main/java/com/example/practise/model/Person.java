@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -18,22 +16,15 @@ import java.util.List;
 public class Person {
     @Id
     private Long id;
-
     private String name;
-    @OneToMany
-    private List<Message> messages;
-
-    public Person(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private int age ;
 
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", messages=" + messages +
+                ", age=" + age +
                 '}';
     }
 }

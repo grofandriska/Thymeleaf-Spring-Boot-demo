@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class MessageService {
 
-    private List<Message> messageList ;
+    private List<Message> messageList;
 
     public MessageService() {
     }
