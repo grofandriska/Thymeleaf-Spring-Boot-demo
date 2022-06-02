@@ -9,13 +9,10 @@ import java.util.List;
 @Service
 public class PersonService {
 
-    private PersonRepository repository;
+    private final PersonRepository repository;
 
-    public List<Person> list;
-
-    public PersonService(PersonRepository repository, List<Person> list) {
+    public PersonService(PersonRepository repository) {
         this.repository = repository;
-        this.list = list;
     }
 
     public void add(Person person) {
