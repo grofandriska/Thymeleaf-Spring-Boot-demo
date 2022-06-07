@@ -15,7 +15,6 @@ public class MessageService {
 
     @Autowired
     private PMRepository pmRepository;
-
     //Have to autowire ,otherwise repo will be null
     @Autowired
     private MessageRepository msgRepository;

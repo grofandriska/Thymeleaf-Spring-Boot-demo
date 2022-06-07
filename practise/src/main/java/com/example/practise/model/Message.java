@@ -15,8 +15,8 @@ import javax.persistence.Id;
 @Setter
 public class Message {
     @Id
-    private Long id ;
-    private String message ;
+    private Long id;
+    private String message;
 
     @Override
     public String toString() {

@@ -22,4 +22,11 @@ public class IndexController {
         model.addAttribute("list", personService.list());
         return "index";
     }
+
+    @GetMapping("/styled-page")
+    public String getStyledPage(Model model , Model list) {
+        model.addAttribute("name", personService.list().get(1).getName());
+        list.addAttribute("list", personService.list());
+        return "index";
+    }
 }

@@ -17,7 +17,7 @@ public class Person {
     @Id
     private Long id;
     private String name;
-    private int age ;
+    private int age;
 
     @Override
     public String toString() {

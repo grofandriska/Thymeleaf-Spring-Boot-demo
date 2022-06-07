@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="https://thymeleaf.org">
+<html xmlns:th="https://thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/styles/js/action.js}"></script>
+    <script th:inline="javascript">
+        var nameJs = /*[[${name}]]*/;
+    </script>
+
 </head>
 <body>
-<h1>HELLO WORLD</h1>
+<h2>HELLO WORLD</h2>
 <tr th:each="person: ${list}">
-    <td th:text="${person.id}" /><br>
-    <td th:text="${person.name}" /><br>
-    <td th:text="${person.age}" /><br>
+    <td th:text="${person.id}"></td><br>
+    <td th:text="${person.name}"></td><br>
+    <td th:text="${person.age}"></td><br>
 </tr>
+<button type="button" th:onclick="showAlert()">Show Alert</button>
+<button type="button" th:onclick="showName(nameJs);">Show Name</button>
+
 
 </body>
 </html>
