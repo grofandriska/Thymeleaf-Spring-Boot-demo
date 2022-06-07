@@ -1,10 +1,14 @@
 package com.example.practise.service;
+
+import com.example.practise.model.DirectMessage;
 import com.example.practise.model.Message;
 import com.example.practise.model.PM;
+import com.example.practise.repository.DirectMessageRepository;
 import com.example.practise.repository.MessageRepository;
 import com.example.practise.repository.PMRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,19 +16,21 @@ import java.util.stream.Collectors;
 
 @Service
 public class MessageService {
-
+    @Autowired
+    private DirectMessageRepository directMessageRepository;
     @Autowired
     private PMRepository pmRepository;
-    //Have to autowire ,otherwise repo will be null
+    //Have to autowire ,otherwise repo will be null #why the all-arg constructor not doing injection of dependencies ?
     @Autowired
     private MessageRepository msgRepository;
 
-    public MessageService(PMRepository pmRepository, MessageRepository msgRepository) {
-        this.pmRepository = pmRepository;
-        this.msgRepository = msgRepository;
+    public MessageService() {
     }
 
-    public MessageService() {
+    public MessageService(DirectMessageRepository directMessageRepository, PMRepository pmRepository, MessageRepository msgRepository) {
+        this.directMessageRepository = directMessageRepository;
+        this.pmRepository = pmRepository;
+        this.msgRepository = msgRepository;
     }
 
     public void add(Message message) {
@@ -63,5 +69,10 @@ public class MessageService {
             }
         }
         return msgList;
+    }
+
+    public List<DirectMessage> getDM(Long id) {
+        List<DirectMessage> result = directMessageRepository.findAll().stream().filter(x -> x.getReceiver_id().equals(id)).collect(Collectors.toList());
+        return result;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.practise.controller;
 
+import com.example.practise.model.DirectMessage;
 import com.example.practise.model.Message;
 import com.example.practise.service.MessageService;
 import org.springframework.web.bind.annotation.*;
@@ -44,5 +45,10 @@ public class MessageController {
     @GetMapping("/{id}/my")
     public List<Message> myList(@PathVariable Long id) {
         return service.getMessages(id);
+    }
+
+    @GetMapping("/{id}/received")
+    public List<DirectMessage> received(@PathVariable Long id) {
+        return service.getDM(id);
     }
 }
