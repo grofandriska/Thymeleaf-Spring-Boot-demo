@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class MessageService {
 
+    @Autowired
     private PMRepository pmRepository;
 
     //Have to autowire ,otherwise repo will be null
