@@ -13,6 +13,7 @@ public class MessageController {
 
     private MessageService service;
 
+
     public MessageController(MessageService service) {
         this.service = service;
     }
@@ -47,8 +48,4 @@ public class MessageController {
         return service.getMessages(id);
     }
 
-    @GetMapping("/{id}/received")
-    public List<DirectMessage> received(@PathVariable Long id) {
-        return service.getDM(id);
-    }
 }

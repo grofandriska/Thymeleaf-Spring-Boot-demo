@@ -2,7 +2,6 @@ package com.example.practise.controller;
 
 import com.example.practise.model.Person;
 import com.example.practise.service.PersonService;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -14,12 +13,6 @@ public class PersonController {
 
     public PersonController(PersonService service) {
         this.service = service;
-    }
-
-    @GetMapping("/all")
-    public String list(Model model) {
-        model.addAttribute("list", service.list());
-        return "index";
     }
 
     @PutMapping("/new")
