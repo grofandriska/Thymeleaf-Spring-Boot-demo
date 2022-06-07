@@ -21,7 +21,8 @@ public class PersonController {
         model.addAttribute("list", service.list());
         return "index";
     }
-    @PostMapping("/new")
+
+    @PutMapping("/new")
     public void add(@RequestBody Person person) {
         service.add(person);
     }
@@ -36,7 +37,7 @@ public class PersonController {
         service.remove(id);
     }
 
-    @PutMapping("/{id}/update")
+    @PostMapping("/{id}/update")
     public Person update(@RequestBody Person person, @PathVariable Long id) {
         return service.update(id, person);
     }
